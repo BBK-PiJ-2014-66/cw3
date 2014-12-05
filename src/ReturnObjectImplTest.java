@@ -1,6 +1,4 @@
-import org.junit.*;
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 /**
@@ -45,8 +43,9 @@ public class ReturnObjectImplTest {
 		// should get back the ErrorMessage we supplied:
 		assertEquals(ro.getError(), ErrorMessage.EMPTY_STRUCTURE);
 
-		// return value must be null (a requirement in interface comments)
-		assertEquals(ro.getReturnValue(), null); 
+		// after error the return value must be null (a requirement in interface
+		// comments)
+		assertNull(ro.getReturnValue());
 	}
 
 }
