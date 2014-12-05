@@ -17,16 +17,18 @@ public class ReturnObjectImplTest {
 	public void testSuccess() {
 		// create a new object - boxed integer
 		Integer anInteger = new Integer(1);
+
 		// supply the boxed integer to ReturnObject
 		ReturnObject ro = new ReturnObjectImpl(anInteger);
 
-		assertFalse(ro.hasError()); // should not have an error
+		// should not have an error
+		assertFalse(ro.hasError());
 
-		assertEquals(ro.getReturnValue(), anInteger); // should get back what we
-														// put in
+		// should get back what we put in
+		assertEquals(ro.getReturnValue(), anInteger);
 
-		assertEquals(ro.getError(), ErrorMessage.NO_ERROR); // the error message
-															// must be NO_ERROR
+		// the "error message": must be NO_ERROR
+		assertEquals(ro.getError(), ErrorMessage.NO_ERROR);
 	}
 
 	@Test
@@ -34,16 +36,17 @@ public class ReturnObjectImplTest {
 	 * test error condition handling
 	 */
 	public void testWithError() {
+		// supply an error message (other than NO_ERROR)
 		ReturnObject ro = new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 
-		assertTrue(ro.hasError()); // this is an error.
+		// this is an error - check hasError method:
+		assertTrue(ro.hasError());
 
-		assertEquals(ro.getError(), ErrorMessage.EMPTY_STRUCTURE); // should get
-																	// back the
-																	// ErrorMessage
+		// should get back the ErrorMessage we supplied:
+		assertEquals(ro.getError(), ErrorMessage.EMPTY_STRUCTURE);
 
-		assertEquals(ro.getReturnValue(), null); // should return null value
-
+		// return value must be null (a requirement in interface comments)
+		assertEquals(ro.getReturnValue(), null); 
 	}
 
 }
