@@ -11,6 +11,8 @@ for this [ReturnObjectImplTest.java](src/ReturnObjectImplTest.java).
 [LinkedListTest.java](src/LinkedListTest.java), that uses methods from Abstract class [ListTest.java](src/ListTest.java).
 
 4. **Write an implementation of interface [FunctionalList](src/FunctionalList.java) that extends [ArrayList](src/ArrayList.java) called FunctionalArrayList.**
+doing [FunctionalArrayList.java](src/FunctionalArrayList.java), JUnit tested by [FunctionalArrayListTest.java](src/FunctionalArrayListTest.java), that uses
+methods from abstract class [FunctionalListTest.java](src/FunctionalListTest.java).
 
 5. **Write an implementation of interface [FunctionalList](src/FunctionalList.java) that extends [LinkedList](src/LinkedList.java) called FunctionalLinkedList.**
 
