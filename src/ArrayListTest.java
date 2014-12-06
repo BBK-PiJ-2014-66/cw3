@@ -112,6 +112,25 @@ public class ArrayListTest {
 		assertEquals(9,myList.size());
 		// first element should be 1
 		assertEquals(1,myList.get(0).getReturnValue());
+	}
+	
+	@Test
+	public void testRemoveFinal() {
+		// add 0 to 9 to list
+		for (int ic = 0; ic < 10; ic++) {
+			myList.add(new Integer(ic));
+		}
+		ReturnObject ro = myList.remove(9);
+		// the removal should not have resulted in an error
+		assertFalse(ro.hasError()); 
+		// remove returns the item removed, in this case 9
+		assertEquals(9,ro.getReturnValue()); 
+		// list should now have nine elements
+		assertEquals(9,myList.size());
+		// first element should be 0
+		assertEquals(0,myList.get(0).getReturnValue());
+		// last element should be 8
+		assertEquals(8,myList.get(8).getReturnValue());
 	}	
 	
 }

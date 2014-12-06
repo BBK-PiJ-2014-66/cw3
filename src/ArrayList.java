@@ -87,7 +87,21 @@ public class ArrayList implements List {
 	 */
 	@Override
 	public ReturnObject remove(int index) {
-		return null;
+		// use get to check index valid and supply the object
+		ReturnObject retRO = get(index);
+		if (!retRO.hasError()) {
+			// remove item
+			size--;
+			for (int ac = index; ac < size; ac++) {
+				objectArray[ac] = objectArray[ac + 1];
+			}
+			/*
+			 * to be tidy get rid of duplicate last record as we use .length on
+			 * the array
+			 */
+			objectArray[size] = null;
+		}
+		return retRO;
 	}
 
 	/**
