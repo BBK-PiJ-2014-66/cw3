@@ -1,7 +1,3 @@
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 /**
  * Unit test FunctionalArrayList class. 
  * 

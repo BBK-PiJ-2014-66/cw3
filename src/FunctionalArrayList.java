@@ -20,8 +20,10 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
 	 */
 	@Override
 	public ReturnObject head() {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.size()==0) {
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		}
+		return new ReturnObjectImpl(this.get(0).getReturnValue());
 	}
 	
     /**

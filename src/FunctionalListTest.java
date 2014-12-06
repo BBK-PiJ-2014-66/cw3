@@ -26,7 +26,7 @@ public abstract class FunctionalListTest {
 		// should not have given error
 		assertFalse(ro.hasError());
 		// head should give first element added "AA"
-		assertEquals(ro.getReturnValue(),"AA");
+		assertEquals("AA",ro.getReturnValue());
 	}
 
 	@Test
