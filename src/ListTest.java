@@ -3,7 +3,7 @@
  * 
  * code originally developed as ArrayListTest but move
  * the meat "up" to this abstract class to allow reuse to test
- * LinkedList implementation with duplication.
+ * LinkedList implementation without duplication.
  * 
  * @author Oliver Smart <osmart01@dcs.bbk.ac.uk>
  */
