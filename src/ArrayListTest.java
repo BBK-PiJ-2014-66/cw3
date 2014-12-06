@@ -97,4 +97,21 @@ public class ArrayListTest {
 		assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS,ro.getError());
 	}
 	
+	@Test
+	public void testRemoveInitial() {
+		// add 0 to 9 to list
+		for (int ic = 0; ic < 10; ic++) {
+			myList.add(new Integer(ic));
+		}
+		ReturnObject ro = myList.remove(0);
+		// the removal should not have resulted in an error
+		assertFalse(ro.hasError()); 
+		// remove returns the item removed, in this case zero
+		assertEquals(0,ro.getReturnValue()); 
+		// list should now have nine elements
+		assertEquals(9,myList.size());
+		// first element should be 1
+		assertEquals(1,myList.get(0).getReturnValue());
+	}	
+	
 }
