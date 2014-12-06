@@ -137,4 +137,32 @@ public abstract class ListTest {
 		assertEquals(8, myList.get(8).getReturnValue());
 	}
 
+	@Test
+	public void testRemoveCompleteListFromEnd() {
+		// add 0 to 9 to list
+		for (int ic = 0; ic < 10; ic++) {
+			myList.add(new Integer(ic));
+		}
+		int mySize = myList.size();
+		while (mySize>0) {
+			myList.remove(mySize-1);
+			mySize--;
+			assertEquals(mySize,myList.size());
+		}
+	}
+	
+	@Test
+	public void testRemoveCompleteListFromBeginning() {
+		// add 0 to 9 to list
+		for (int ic = 0; ic < 10; ic++) {
+			myList.add(new Integer(ic));
+		}
+		int mySize = myList.size();
+		while (mySize>0) {
+			myList.remove(0);
+			mySize--;
+			assertEquals(mySize,myList.size());
+		}
+	}
+	
 }
