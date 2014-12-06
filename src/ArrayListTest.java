@@ -61,14 +61,15 @@ public class ArrayListTest {
 		assertEquals( ro.getError(), ErrorMessage.INVALID_ARGUMENT);
 	}
 	
-
 	@Test
 	public void testGettingAddandGet10Items() {
 		for (int ic = 0; ic < 10; ic++) {
 			myList.add(new Integer(ic));
 		}
 		for (int ic = 0; ic < 10; ic++) {
-			assertEquals(ic,myList.get(ic));
+			assertFalse(myList.get(ic).hasError());
+			int getBack = (Integer) myList.get(ic).getReturnValue();
+			assertEquals(ic,getBack);
 		}
 	}
 	
@@ -78,11 +79,11 @@ public class ArrayListTest {
 		for (int ic = 0; ic < 10; ic++) {
 			myList.add(new Integer(ic));
 		}
-		// now add 44 as item# 4
-		myList.add( 4, new Integer(44));
-		assertEquals(3,myList.get(3));
-		assertEquals(44,myList.get(4));
-		assertEquals(5,myList.get(5));
+		// now add "insert@4" as item# 4
+		myList.add( 4, "insert@4");
+		assertEquals(3,myList.get(3).getReturnValue());
+		assertEquals("insert@4",myList.get(4).getReturnValue());
+		assertEquals(4,myList.get(5).getReturnValue());
 		assertEquals(11,myList.size());
 	}
 	
@@ -92,8 +93,7 @@ public class ArrayListTest {
 		for (int ic = 0; ic < 10; ic++) {
 			myList.add(new Integer(ic));
 		}
-		myList.add( 10, "fred");
-		ReturnObject ro = myList.add(null);
+		ReturnObject ro = myList.add( 10, "fred");
 		assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS,ro.getError());
 	}
 	
