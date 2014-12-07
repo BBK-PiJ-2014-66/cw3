@@ -12,6 +12,7 @@ public class StackImplTest {
 
 	@Before
 	public void initialize() {
+		// first stack is uses array and the 2nd linkedlist
 		Stacks = new Stack[2];
 		Stacks[0] = new StackImpl(new ArrayList());
 		Stacks[1] = new StackImpl(new LinkedList());
@@ -53,6 +54,24 @@ public class StackImplTest {
 			assertFalse(ro.hasError());
 			// stack is last in first out so should get "CCC"
 			assertEquals("CCC",ro.getReturnValue());
+		}
+	}
+	@Test
+	public void testPopFromFilled() {
+		for (int sc = 0; sc < 2; sc++) {
+			Stacks[sc].push("A");
+			Stacks[sc].push("B");
+			ReturnObject ro = Stacks[sc].pop();
+			assertFalse(ro.hasError());
+			// stack is last in first out so should get "B"
+			assertEquals("B",ro.getReturnValue());
+			// stack should have one item
+			assertEquals(1,Stacks[sc].size());
+			assertEquals("A", Stacks[sc].pop().getReturnValue());
+			// another pop should give an EMPTRY_STRUCTURE error
+			ro = Stacks[sc].pop();
+			assertTrue(ro.hasError());
+			assertEquals(ErrorMessage.EMPTY_STRUCTURE,ro.getError());
 		}
 	}
 	

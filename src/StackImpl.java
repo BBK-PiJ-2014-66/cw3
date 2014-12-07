@@ -74,8 +74,8 @@ public class StackImpl extends AbstractStack implements Stack {
 	public void push(Object item) {
 		if (this == null) {
 			// should throw an exception?
-			System.out
-					.println("WARNING trying to push() item to a List that is null");
+			System.out.println("WARNING"
+					+ " trying to push() item to a List that is null");
 			return;
 		}
 		internalList.add(item);
@@ -97,10 +97,11 @@ public class StackImpl extends AbstractStack implements Stack {
 			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
 		}
 		ReturnObject topRO = internalList.get(internalList.size() - 1);
-		if (topRO.hasError()) { 
+		if (topRO.hasError()) {
 			// should never happen! throw an exception? or assert?
-			System.out.println("WARNING internal programMing top/pop got unexpected "
-					+ " ReturnObject error " + topRO.getError());
+			System.out.println("WARNING internal programming"
+					+ " top/pop got unexpected ReturnObject error "
+					+ topRO.getError());
 			return null;
 		}
 		return topRO;
@@ -116,8 +117,8 @@ public class StackImpl extends AbstractStack implements Stack {
 	@Override
 	public ReturnObject pop() {
 		ReturnObject topRO = this.top();
-		if (topRO!=null && !topRO.hasError()) {
-			internalList.remove(internalList.size() - 1);	
+		if (topRO != null && !topRO.hasError()) {
+			internalList.remove(internalList.size() - 1);
 		}
 		return topRO;
 	}
