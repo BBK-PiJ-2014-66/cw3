@@ -1,17 +1,17 @@
 PiJ Coursework Three
 ====================
 
-1. **Write a class that implements interface [ReturnObject](src/ReturnObject.java).** Done [ReturnObjectImpl.java](src/ReturnObjectImpl.java), JUnit test
+1. **Write a class that implements interface [ReturnObject](src/ReturnObject.java).** *Done* [ReturnObjectImpl.java](src/ReturnObjectImpl.java), JUnit test
 for this [ReturnObjectImplTest.java](src/ReturnObjectImplTest.java).
 
-2. **Write an implementation of interface [List](src/List.java) based on arrays called ArrayList.** Done [ArrayList.java](src/ArrayList.java) tested by
+2. **Write an implementation of interface [List](src/List.java) based on arrays called ArrayList.** *Done* [ArrayList.java](src/ArrayList.java) tested by
 [ArrayListTest.java](src/ArrayListTest.java), that uses methods from Abstract class [ListTest.java](src/ListTest.java). 
 
-3. **Write an implementation of interface [List](src/List.java) based on pointers called LinkedList.** Done [LinkedList.java](src/LinkedList.java) tested by
+3. **Write an implementation of interface [List](src/List.java) based on pointers called LinkedList.** *Done* [LinkedList.java](src/LinkedList.java) tested by
 [LinkedListTest.java](src/LinkedListTest.java), that uses methods from Abstract class [ListTest.java](src/ListTest.java).
 
 4. **Write an implementation of interface [FunctionalList](src/FunctionalList.java) that extends [ArrayList](src/ArrayList.java) called FunctionalArrayList.**
-doing [FunctionalArrayList.java](src/FunctionalArrayList.java), JUnit tested by [FunctionalArrayListTest.java](src/FunctionalArrayListTest.java), that uses
+*Done* [FunctionalArrayList.java](src/FunctionalArrayList.java), JUnit tested by [FunctionalArrayListTest.java](src/FunctionalArrayListTest.java), that uses
 methods from abstract class [FunctionalListTest.java](src/FunctionalListTest.java).
 
 5. **Write an implementation of interface [FunctionalList](src/FunctionalList.java) that extends [LinkedList](src/LinkedList.java) called FunctionalLinkedList.**
