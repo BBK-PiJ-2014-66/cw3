@@ -35,8 +35,15 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList {
      */
 	@Override
 	public FunctionalList rest() {
-		// TODO Auto-generated method stub
-		return null;
+		// use a static method to return a new FunctionalList without the head 
+		FunctionalList chopOutHead = chopOutHead(this);
+		return chopOutHead;
+	}
+	
+	public static FunctionalList chopOutHead( FunctionalList inFnList) {
+		// remove the first item ignoring any error
+		inFnList.remove(0);
+		return inFnList;
 	}
 
 }

@@ -45,7 +45,13 @@ public abstract class FunctionalListTest {
 	
 	@Test
 	public void testRest() {
-		fail("testRest not yet implemented"); // TODO
+		myList.add("AA");
+		myList.add("BB");
+		myList.add("CC");
+		assertEquals(3,myList.size());
+		FunctionalList chopList = myList.rest();
+		assertEquals(3,myList.size());
+		assertEquals(2,chopList.size());
 	}
 
 }
