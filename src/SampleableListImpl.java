@@ -16,8 +16,8 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
 			Object item = this.get(ic).getReturnValue();
 			if (item == null) {
 				// should really throw an error
-				System.out
-						.println("internal progamming error in SampleableList sample! Got a null");
+				System.out.println("internal progamming error"
+						+ " in SampleableList sample! Got a null");
 			} else {
 				sampled.add(item);
 			}
