@@ -23,7 +23,7 @@ the test in the same abstract class as before ([FunctionalListTest.java](src/Fun
 *Done.* [SampleableListImpl.java](src/SampleableListImpl.java) passes tests [SampleableListImplTest.java](src/SampleableListImplTest.java). 
 
 7. **Write a class StackImpl that extends class [AbstractStack](src/AbstractStack.java)** (that implements [Stack.java](src/Stack.java)).
-*Part done* [StackImpl.java](src/StackImpl.java) tests for this [StackImplTest.java](src/StackImplTest.java).
+*Done* [StackImpl.java](src/StackImpl.java) tests for this [StackImplTest.java](src/StackImplTest.java).
 
 8. **Write an implementation of interface [ImprovedStack](src/ImprovedStack.java). This class cannot extend either  [AbstractStack](src/AbstractStack.java) or StackImpl.**
 
