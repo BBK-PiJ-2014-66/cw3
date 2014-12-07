@@ -10,7 +10,19 @@ public class SampleableListImpl extends ArrayList implements SampleableList {
 	 */
 	@Override
 	public SampleableList sample() {
-		return null;
+		SampleableList sampled = new SampleableListImpl();
+		// want the 0, 2, 4 index (count from zero in java!)
+		for (int ic = 0; ic < this.size(); ic += 2) {
+			Object item = this.get(ic).getReturnValue();
+			if (item == null) {
+				// should really throw an error
+				System.out
+						.println("internal progamming error in SampleableList sample! Got a null");
+			} else {
+				sampled.add(item);
+			}
+		}
+		return sampled;
 	}
 
 }

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class SampleableListImplTest extends ListTest{
 
 	/** 
-	 * first use the existing ListTest
+	 * first use the existing ListTest (test List rather than SampleableList function).
 	 */
 	public void initialize() {
 		myList = new SampleableListImpl();
@@ -42,5 +42,12 @@ public class SampleableListImplTest extends ListTest{
 		assertEquals("5th",sampledList.get(2).getReturnValue());
 
 	}
-
+	
+	@Test
+	public void testSampleOnEmpty() {
+		SampleableList initialList = new SampleableListImpl();
+		SampleableList sampledList = initialList.sample();
+		assertTrue(sampledList.isEmpty());
+	}
+	
 }

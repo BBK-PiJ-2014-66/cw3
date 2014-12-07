@@ -19,8 +19,8 @@ methods from abstract class [FunctionalListTest.java](src/FunctionalListTest.jav
 [FunctionalLinkedList.java](src/FunctionalLinkedList.java) tested by [FunctionalLinkedListTest.java](src/FunctionalLinkedListTest.java) with the meat of
 the test in the same abstract class as before ([FunctionalListTest.java](src/FunctionalListTest.java)).
 
-
 6. **Write an implementation of interface [SampleableList](src/SampleableList.java).**
+*Done.* [SampleableListImpl.java](src/SampleableListImpl.java) passes tests [SampleableListImplTest.java](SampleableListImplTest.java). 
 
 7. **Write a class StackImpl that extends class [AbstractStack](src/AbstractStack.java).**
 
