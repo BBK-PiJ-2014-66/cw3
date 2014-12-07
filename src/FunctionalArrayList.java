@@ -1,7 +1,7 @@
 /**
  * FunctionalList implementation using ArrayList
  * 
- * A FunctionalList is a List with addition head and rest methods
+ * A FunctionalList is a List with addition of head and rest methods
  * 
  * @author Oliver Smart <osmart01@dcs.bbk.ac.uk>
  * 
