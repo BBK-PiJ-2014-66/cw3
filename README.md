@@ -13,7 +13,6 @@ for this [ReturnObjectImplTest.java](src/ReturnObjectImplTest.java).
 4. **Write an implementation of interface [FunctionalList](src/FunctionalList.java) that extends [ArrayList](src/ArrayList.java) called FunctionalArrayList.**
 *Done* [FunctionalArrayList.java](src/FunctionalArrayList.java) uses methods from [FunctionalLinkedListMethods.java](src/FunctionalLinkedListMethods.java) 
 to avoid duplication.
-
 JUnit tested by [FunctionalArrayListTest.java](src/FunctionalArrayListTest.java), that uses
 methods from abstract class [FunctionalListTest.java](src/FunctionalListTest.java).
 
