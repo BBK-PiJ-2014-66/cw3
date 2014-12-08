@@ -1,7 +1,10 @@
 /**
  * FunctionalList implementation using ArrayList
  * 
- * A FunctionalList is a List with addition of head and rest methods
+ * A FunctionalList is a List with addition of head and rest methods.
+ * 
+ * To avoid code duplication uses methods from FunctionalLinkedListMethods to do
+ * the actual work.
  * 
  * @author Oliver Smart <osmart01@dcs.bbk.ac.uk>
  * 
@@ -21,10 +24,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList,
 	 */
 	@Override
 	public ReturnObject head() {
-		if (this.size() == 0) {
-			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
-		}
-		return new ReturnObjectImpl(this.get(0).getReturnValue());
+		return FunctionalLinkedListMethods.head(this);
 	}
 
 	/**
@@ -37,12 +37,8 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList,
 	@Override
 	public FunctionalList rest() {
 		// we have to "clone" the FunctionalList to get a new copy
-		FunctionalList cutDownList = this.clone();
-		// chop out the first (0 index) element if there is one
-		if (!cutDownList.isEmpty()) {
-			cutDownList.remove(0);
-		}
-		return cutDownList;
+		FunctionalList clonedList = this.clone();
+		return FunctionalLinkedListMethods.chopOutFirstElement(clonedList);
 	}
 
 	/**
@@ -59,12 +55,7 @@ public class FunctionalArrayList extends ArrayList implements FunctionalList,
 	@Override
 	public FunctionalList clone() {
 		FunctionalList theClone = new FunctionalArrayList();
-		for (int ic = 0; ic < this.size(); ic++) {
-			Object item = this.get(ic).getReturnValue();
-			// assume we want a "shallow" copy so simply add the same object
-			theClone.add(item);
-		}
-		return theClone;
+		return FunctionalLinkedListMethods.makeCopyOfList(this, theClone);
 	}
 
 }
