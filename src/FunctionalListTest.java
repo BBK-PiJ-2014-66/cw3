@@ -64,16 +64,27 @@ public abstract class FunctionalListTest {
 		// and again to empty it
 		chopList = chopList.rest();
 		assertTrue(chopList.isEmpty());
-        // original list should have 2 items AA and CC		
+		// original list should have 2 items AA and CC
 		assertEquals(2, myList.size());
 		assertEquals("AA", myList.head().getReturnValue());
-		assertEquals("CC", myList.get(1).getReturnValue());		
+		assertEquals("CC", myList.get(1).getReturnValue());
 	}
-	
+
 	@Test
 	public void testRestOnEmpty() {
 		FunctionalList chopList = myList.rest();
 		assertTrue(chopList.isEmpty());
+	}
+
+	@Test
+	public void testThatHeadReturnsACopy() {
+		String describeTest= "head must returns a copy of the original Object not the object itself";
+		Integer myBoxInteger = 1;
+		myList.add(myBoxInteger);
+		ReturnObject ro = myList.head();
+		// change the value of the original value
+		myBoxInteger = 0;
+		assertEquals(describeTest,1,ro.getReturnValue());
 	}
 
 }
