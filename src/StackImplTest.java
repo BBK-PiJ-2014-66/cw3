@@ -1,32 +1,59 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * JUnit tests for StackImpl implementations
+ * 
+ * Peforms the same tests on 3 things:
+ * 
+ * (a) StackImpl using an ArrayList List
+ * 
+ * (b) StackImpl using a LinkedList List
+ * 
+ * (c) ImprovedStackImpl (note that this tests just the Stack type functions)
+ * and not the additional reverse and remove methods that the are introduced in
+ * ImprovedStack
+ * 
+ * @author osmart
+ * 
+ */
 public class StackImplTest {
 	/**
-	 * Test all three implementation of the array and linked list version of the
-	 * stacks. To make this easy create an array.
+	 * Same test on three things. To do this create an array.
 	 */
 	private Stack Stacks[];
-	private static int NSTACKS = 3;
+	private static int NSTACKS = 3; // never hard code anything
 	private static String[] DESCRIBEIMPL = { "ArrayList", "LinkedList",
 			"ImprovedStackImpl" };
 
+	/**
+	 * method to initialize the three stack implementations
+	 */
 	@Before
 	public void initialize() {
-		// first stack uses arrayList and the 2nd linkedlist
 		Stacks = new Stack[NSTACKS];
-		Stacks[0] = new StackImpl(new ArrayList());
-		Stacks[1] = new StackImpl(new LinkedList());
-		if (NSTACKS > 2) {
+		Stacks[0] = new StackImpl(new ArrayList()); // first ArrayList
+		Stacks[1] = new StackImpl(new LinkedList()); // 2nd LinkedList
+		if (NSTACKS > 2) { /*
+							 * 3rd is improved stack. Use the conditional to
+							 * allow it to be easilyturned off during
+							 * development
+							 */
 			Stacks[2] = new ImprovedStackImpl();
 		}
 	}
 
+	/**
+	 * initial stacks will be empty. Check that they actually give .isEmpty() true
+	 */
 	@Test
 	public void testEmptyStackisEmpty() {
-		String descript;
+		// in the case of a failure need to know which fails
+		String descript; 
 		for (int sc = 0; sc < NSTACKS; sc++) {
 			descript = "test for " + DESCRIBEIMPL[sc]
 					+ " : a empty list should  give .isEmpty true";
@@ -34,6 +61,10 @@ public class StackImplTest {
 		}
 	}
 
+	/**
+	 * test that three things to a stack results in .isEmpty false and
+	 * .size() of three.
+	 */
 	@Test
 	public void testStackSize() {
 		String descript;
@@ -50,6 +81,9 @@ public class StackImplTest {
 		}
 	}
 
+	/**
+	 * test top from empty stack. Should produce a EMPTY_STRUCTURE error message
+	 */
 	@Test
 	public void testTopFromEmpty() {
 		String descript;
@@ -127,17 +161,17 @@ public class StackImplTest {
 				descript = "test E for "
 						+ DESCRIBEIMPL[sc]
 						+ " (2nd) .pop on filled stack should get back last object put in.";
-				assertEquals(descript,"A", Stacks[sc].pop().getReturnValue());
+				assertEquals(descript, "A", Stacks[sc].pop().getReturnValue());
 				// another pop should give an EMPTY_STRUCTURE error
 				ro = Stacks[sc].pop();
-				descript = "test F for "
-						+ DESCRIBEIMPL[sc]
+				descript = "test F for " + DESCRIBEIMPL[sc]
 						+ " .pop on now empty stack should give .hasError";
-				assertTrue(descript,ro.hasError());
+				assertTrue(descript, ro.hasError());
 				descript = "test G for "
 						+ DESCRIBEIMPL[sc]
 						+ " .pop on now empty stack should give ErrorMessage EMPTY_STRUCTURE";
-				assertEquals(descript,ErrorMessage.EMPTY_STRUCTURE, ro.getError());
+				assertEquals(descript, ErrorMessage.EMPTY_STRUCTURE,
+						ro.getError());
 			}
 		}
 	}
