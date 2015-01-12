@@ -36,8 +36,9 @@ public class ImprovedStackImplTest {
 				original.size());
 
 		ImprovedStack reversed = original.reverse();
+		assertNotNull("test D1: reverse should not return a null object.", reversed);
 		assertEquals(
-				"test D: reverse of stack with 3 elements must result in stack with 3 elements",
+				"test D2: reverse of stack with 3 elements must result in stack with 3 elements",
 				3, reversed.size());
 
 		ReturnObject ro;
