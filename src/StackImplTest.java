@@ -16,7 +16,7 @@ import org.junit.Test;
  * (b) StackImpl using a LinkedList List
  * 
  * (c) ImprovedStackImpl (note that this tests just the Stack type functions)
- * and not the additional reverse and remove methods that the are introduced in
+ * and not the additional reverse and remove methods that are introduced in
  * ImprovedStack
  * 
  * @author Oliver Smart <osmart01@dcs.bbk.ac.uk>
