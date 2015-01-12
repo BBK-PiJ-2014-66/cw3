@@ -36,20 +36,40 @@ public class ImprovedStackImplTest {
 				original.size());
 
 		ImprovedStack reversed = original.reverse();
-		assertEquals("test D: reverse of stack with 3 elements must result in stack with 3 elements", 3,
-				reversed.size());
-		
+		assertEquals(
+				"test D: reverse of stack with 3 elements must result in stack with 3 elements",
+				3, reversed.size());
+
 		ReturnObject ro;
 		ro = original.pop();
-		assertNotNull("test E: .pop() must never return a null",ro);
+		assertNotNull("test E: .pop() must never return a null", ro);
 		assertEquals("test F: first pop on original", "s3", ro);
 
 		ro = reversed.pop();
-		assertNotNull("test G: .pop() must never return a null",ro);
+		assertNotNull("test G: .pop() must never return a null", ro);
 		assertEquals("test H: first pop on reversed", "s1", ro);
 		assertEquals("test I: 2nd pop on reversed", "s2", reversed.pop());
 		assertEquals("test J: 3rd pop on reversed", "s3", reversed.pop());
-		
+
+	}
+
+	/**
+	 * test of remove method. 
+	 */
+	@Test
+	public void testRemove() {
+		ImprovedStack test = new ImprovedStackImpl();
+		test.push("a");
+		test.push("B");
+		test.push("C");
+		test.push("B");
+		test.push("b");
+		assertEquals("test A: after adding 5 elements size must be 5 ", 5,
+				test.size());
+		test.remove("B");
+		assertEquals("test B: removing \"B\" should have removed 2 objects. ", 3,
+				test.size());		
+
 	}
 
 }
