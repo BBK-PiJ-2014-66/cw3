@@ -9,6 +9,8 @@
  */
 public class ImprovedStackImpl implements ImprovedStack {
 
+	// want List type access for reverse and remove methods
+	private List internalList;
 	private Stack internalStack;
 
 	/**
@@ -16,24 +18,25 @@ public class ImprovedStackImpl implements ImprovedStack {
 	 */
 	ImprovedStackImpl() {
 		// Use the StackImpl with array implementation of List
-		internalStack = new StackImpl(new ArrayList());		
+		internalList = new ArrayList();
+		internalStack = new StackImpl(internalList);
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// simply use the method from StackImpl
-		return internalStack.isEmpty(); 		
+		return internalStack.isEmpty();
 	}
 
 	@Override
 	public int size() {
 		// simply use the method from StackImpl
-		return internalStack.size(); 
+		return internalStack.size();
 	}
 
 	@Override
 	public void push(Object item) {
-		 // simply use the method from StackImpl
+		// simply use the method from StackImpl
 		internalStack.push(item);
 	}
 
@@ -49,10 +52,26 @@ public class ImprovedStackImpl implements ImprovedStack {
 		return internalStack.pop();
 	}
 
+	/**
+	 * Returns a copy of this stack with the items reversed, the top
+	 * elements on the original stack is at the bottom of the new
+	 * stack and viceversa.
+	 * 
+	 * @return a copy of this stack with the items reversed. 
+	 */
 	@Override
 	public ImprovedStack reverse() {
-		// TODO Auto-generated method stub
-		return null;
+		if (internalList == null)
+			return null;
+		ImprovedStack reversed = new ImprovedStackImpl();
+		// access the Stack elements in reverse using the underlying internalList
+		for (int ic= internalList.size()-1; ic>=0; ic--) {
+			// want the element in the list at ic
+			Object element = internalList.get(ic).getReturnValue(); 
+			// push the new element into the new stack
+			reversed.push(element); 
+		}
+		return reversed;
 	}
 
 	@Override
