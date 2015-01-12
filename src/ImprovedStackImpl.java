@@ -1,40 +1,52 @@
 /**
  * 
+ * Coursework specifies:
+ * "this class cannot Extend either AbstractStack or StackImpl" so instead use
+ * composition where this class "has-a" internalStack;
+ * 
  * @author Oliver Smart <osmart01@dcs.bbk.ac.uk>
- *
+ * 
  */
 public class ImprovedStackImpl implements ImprovedStack {
 
-	//private Stack internalStack;
-		
+	private Stack internalStack;
+
+	/**
+	 * constructor: simply create an internalStack.
+	 */
+	ImprovedStackImpl() {
+		// Use the StackImpl with array implementation of List
+		internalStack = new StackImpl(new ArrayList());		
+	}
+
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		// simply use the method from StackImpl
+		return internalStack.isEmpty(); 		
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		// simply use the method from StackImpl
+		return internalStack.size(); 
 	}
 
 	@Override
 	public void push(Object item) {
-		// TODO Auto-generated method stub
-
+		 // simply use the method from StackImpl
+		internalStack.push(item);
 	}
 
 	@Override
 	public ReturnObject top() {
-		// TODO Auto-generated method stub
-		return null;
+		// simply use the method from StackImpl
+		return internalStack.top();
 	}
 
 	@Override
 	public ReturnObject pop() {
-		// TODO Auto-generated method stub
-		return null;
+		// simply use the method from StackImpl
+		return internalStack.pop();
 	}
 
 	@Override
