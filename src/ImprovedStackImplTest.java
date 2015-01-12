@@ -44,13 +44,13 @@ public class ImprovedStackImplTest {
 		ReturnObject ro;
 		ro = original.pop();
 		assertNotNull("test E: .pop() must never return a null", ro);
-		assertEquals("test F: first pop on original", "s3", ro);
+		assertEquals("test F: first pop on original", "s3", ro.getReturnValue());
 
 		ro = reversed.pop();
 		assertNotNull("test G: .pop() must never return a null", ro);
-		assertEquals("test H: first pop on reversed", "s1", ro);
-		assertEquals("test I: 2nd pop on reversed", "s2", reversed.pop());
-		assertEquals("test J: 3rd pop on reversed", "s3", reversed.pop());
+		assertEquals("test H: first pop on reversed stack", "s1", ro.getReturnValue());
+		assertEquals("test I: 2nd pop on reversed", "s2", reversed.pop().getReturnValue());
+		assertEquals("test J: 3rd pop on reversed", "s3", reversed.pop().getReturnValue());
 
 	}
 
