@@ -36,7 +36,8 @@ public class ImprovedStackImplTest {
 				original.size());
 
 		ImprovedStack reversed = original.reverse();
-		assertNotNull("test D1: reverse should not return a null object.", reversed);
+		assertNotNull("test D1: reverse should not return a null object.",
+				reversed);
 		assertEquals(
 				"test D2: reverse of stack with 3 elements must result in stack with 3 elements",
 				3, reversed.size());
@@ -48,28 +49,58 @@ public class ImprovedStackImplTest {
 
 		ro = reversed.pop();
 		assertNotNull("test G: .pop() must never return a null", ro);
-		assertEquals("test H: first pop on reversed stack", "s1", ro.getReturnValue());
-		assertEquals("test I: 2nd pop on reversed", "s2", reversed.pop().getReturnValue());
-		assertEquals("test J: 3rd pop on reversed", "s3", reversed.pop().getReturnValue());
+		assertEquals("test H: first pop on reversed stack", "s1",
+				ro.getReturnValue());
+		assertEquals("test I: 2nd pop on reversed", "s2", reversed.pop()
+				.getReturnValue());
+		assertEquals("test J: 3rd pop on reversed", "s3", reversed.pop()
+				.getReturnValue());
 
 	}
 
 	/**
-	 * test of remove method. 
+	 * test of remove method.
 	 */
 	@Test
 	public void testRemove() {
 		ImprovedStack test = new ImprovedStackImpl();
-		test.push("a");
+		test.push("1");
 		test.push("B");
-		test.push("C");
+		test.push("2");
 		test.push("B");
-		test.push("b");
+		test.push("3");
 		assertEquals("test A: after adding 5 elements size must be 5 ", 5,
 				test.size());
 		test.remove("B");
-		assertEquals("test B: removing \"B\" should have removed 2 objects. ", 3,
-				test.size());		
+		assertEquals("test B: removing \"B\" should have removed 2 objects. ",
+				3, test.size());
+		while (!test.isEmpty()) {
+			Object top = test.top().getReturnValue();
+			test.remove(top);
+		}
+		assertEquals("test C: should have cleared stack by repeated .remove()",
+				0, test.size());
+
+	}
+
+	/**
+	 * remove 5 identical objects at once
+	 */
+	@Test
+	public void testRemove5identicalObjects() {
+		ImprovedStack test = new ImprovedStackImpl();
+		test.push("1");
+		test.push("1");
+		test.push("1");
+		test.push("1");
+		test.push("1");
+		assertFalse(
+				"test A: added 5 identical elements to stack .isEmpty() must be false",
+				test.isEmpty());
+		test.remove("1");
+		assertEquals(
+				"test A: remove stack with 5 identical objects simultaneously. Should be left with .size()==0.",
+				0, test.size());
 
 	}
 
