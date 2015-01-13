@@ -28,7 +28,8 @@ the test in the same abstract class as before ([FunctionalListTest.java](src/Fun
 *Done* [StackImpl.java](src/StackImpl.java) tests for this [StackImplTest.java](src/StackImplTest.java).
 
 8. **Write an implementation of interface [ImprovedStack](src/ImprovedStack.java). This class cannot extend either  [AbstractStack](src/AbstractStack.java) or StackImpl.**
-
+*Done* [ImprovedStackImpl.java](src/[ImprovedStackImpl.java) is tested by [StackImplTest.java](src/StackImplTest.java) for "basic"
+Stack method (pass 3) and  [ImprovedStackImplTest.java](src/[ImprovedStackImplTest.java) for the extra "Improved" methods.
 
 
 
