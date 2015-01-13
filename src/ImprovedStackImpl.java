@@ -92,9 +92,17 @@ public class ImprovedStackImpl implements ImprovedStack {
 		for (int ic = 0; ic < internalList.size(); ic++) {
 			if (internalList.get(ic).getReturnValue().equals(object)) {
 				internalList.remove(ic);
+				/* once an item is removed the indices get mucked up.
+				 * could tinker with them: doing
+				 *            ic--;
+				 * works but this seems dangerous. Instead make single call to this
+				 * remove() take out the first occurence and do a recursive
+				 * call to take out any others. 
+				 */
+				this.remove(object);
+				break;
 			}
 		}
-
 	}
 
 }
