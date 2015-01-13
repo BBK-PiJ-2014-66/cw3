@@ -53,30 +53,47 @@ public class ImprovedStackImpl implements ImprovedStack {
 	}
 
 	/**
-	 * Returns a copy of this stack with the items reversed, the top
-	 * elements on the original stack is at the bottom of the new
-	 * stack and viceversa.
+	 * Returns a copy of this stack with the items reversed, the top elements on
+	 * the original stack is at the bottom of the new stack and viceversa.
 	 * 
-	 * @return a copy of this stack with the items reversed. 
+	 * @return a copy of this stack with the items reversed.
 	 */
 	@Override
 	public ImprovedStack reverse() {
 		if (internalList == null)
 			return null;
 		ImprovedStack reversed = new ImprovedStackImpl();
-		// access the Stack elements in reverse using the underlying internalList
-		for (int ic= internalList.size()-1; ic>=0; ic--) {
+		// access the Stack elements in reverse using the underlying
+		// internalList
+		for (int ic = internalList.size() - 1; ic >= 0; ic--) {
 			// want the element in the list at ic
-			Object element = internalList.get(ic).getReturnValue(); 
+			Object element = internalList.get(ic).getReturnValue();
 			// push the new element into the new stack
-			reversed.push(element); 
+			reversed.push(element);
 		}
 		return reversed;
 	}
 
+	/**
+	 * Removes the given object from the stack if it is there. Multiple
+	 * instances of the object are all removed.
+	 * 
+	 * Classes implementing this method must use method .equals() to check
+	 * whether the item is in the stack or not.
+	 * 
+	 * @param object
+	 *            the object to remove
+	 */
 	@Override
 	public void remove(Object object) {
-		// TODO Auto-generated method stub
+		if (internalList == null)
+			return;
+		// access the Stack element using the underlying internalList
+		for (int ic = 0; ic < internalList.size(); ic++) {
+			if (internalList.get(ic).getReturnValue().equals(object)) {
+				internalList.remove(ic);
+			}
+		}
 
 	}
 
